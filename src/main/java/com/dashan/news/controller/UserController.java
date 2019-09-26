@@ -4,11 +4,9 @@ import com.dashan.news.common.ResponseMap;
 import com.dashan.news.pojo.User;
 import com.dashan.news.service.UserService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @Autowired
     UserService userService;
-    //新增用户信息
     @PostMapping("/addUser")
     public ResponseMap addUser(User user){
         return userService.insert(user);
@@ -33,12 +30,15 @@ public class UserController {
     }
     //查询用户信息
     @GetMapping("/selectUser")
-    public ResponseMap select(User user){
+    public ResponseMap select(@ApiParam(name = "用户id",required = true)
+                              @RequestParam(value = "userId",required = true) int userId)
+    {
+        User user = new User();
+        user.setUserId(userId);
         return userService.select(user);
     }
     @GetMapping("/login")
     public ResponseMap login(){
         return userService.login();
     }
-
 }
