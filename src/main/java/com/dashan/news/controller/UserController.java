@@ -4,6 +4,7 @@ import com.dashan.news.common.ResponseMap;
 import com.dashan.news.pojo.User;
 import com.dashan.news.service.UserService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,7 @@ public class UserController {
     public ResponseMap deleteById(User user){
         return userService.delecte(user);
     }
-    //查询用户信息
+    @ApiOperation(value = "查询用户信息",notes = "通过用户名、用户id查询用户的的个人信息")
     @GetMapping("/selectUser")
     public ResponseMap select(@ApiParam(name = "用户id",required = true)
                               @RequestParam(value = "userId",required = true) int userId)
