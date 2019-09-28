@@ -1,7 +1,7 @@
 package com.dashan.news.service;
 
 import com.dashan.news.common.ResponseMap;
-import com.dashan.news.pojo.User;
+import com.dashan.news.po.user.User;
 
 
 public interface UserService {
@@ -14,5 +14,5 @@ public interface UserService {
 
     ResponseMap select(User user);
 
-    ResponseMap login();
+    ResponseMap login(User user);
 }

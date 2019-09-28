@@ -1,11 +1,12 @@
 package com.dashan.news.service.impl;
 
 import com.dashan.news.common.ResponseMap;
-import com.dashan.news.mapper.UserMapper;
-import com.dashan.news.pojo.User;
+
+import com.dashan.news.mapper.user.UserMapper;
+import com.dashan.news.po.user.User;
+import com.dashan.news.po.user.UserExample;
 import com.dashan.news.service.UserService;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 
 @Service
@@ -30,8 +31,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseMap select(User user) {
-        User user1 = userMapper.select(user);
-        if (user1.getUserId() != 0){
+
+        UserExample example = new UserExample();
+        UserExample.Criteria criteria = example.createCriteria();
+        criteria.andUserIdEqualTo(user.getUserId());
+        User user1 = userMapper.selectByPrimaryKey(user.getUserId());
+        if (user1.getUserId() != null){
             return ResponseMap.success("OK",user1);
         }else{
             return ResponseMap.fail("用户不存在！");
@@ -39,7 +44,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseMap login() {
+    public ResponseMap login(User user) {
+
+
         return null;
     }
 }
