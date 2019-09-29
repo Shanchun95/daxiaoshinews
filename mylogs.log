@@ -1,0 +1,6 @@
+2019-09-28 09:20:31.185 DEBUG 13212 --- [http-nio-8080-exec-3] c.d.n.m.u.UserMapper.selectByPrimaryKey  : ==>  Preparing: select user_id, user_name, password, name, sex, age, phone, address, remark, createTime, updateTime from n_user where user_id = ? 
+2019-09-28 09:20:31.205 DEBUG 13212 --- [http-nio-8080-exec-3] c.d.n.m.u.UserMapper.selectByPrimaryKey  : ==> Parameters: 1(Integer)
+2019-09-28 09:20:31.231 DEBUG 13212 --- [http-nio-8080-exec-3] c.d.n.m.u.UserMapper.selectByPrimaryKey  : <==      Total: 1
+2019-09-28 09:29:06.375 DEBUG 13548 --- [http-nio-8080-exec-1] c.d.n.m.u.UserMapper.selectByPrimaryKey  : ==>  Preparing: select user_id, user_name, password, name, sex, age, phone, address, remark, createTime, updateTime from n_user where user_id = ? 
+2019-09-28 09:29:06.392 DEBUG 13548 --- [http-nio-8080-exec-1] c.d.n.m.u.UserMapper.selectByPrimaryKey  : ==> Parameters: 1(Integer)
+2019-09-28 09:29:06.418 DEBUG 13548 --- [http-nio-8080-exec-1] c.d.n.m.u.UserMapper.selectByPrimaryKey  : <==      Total: 1
